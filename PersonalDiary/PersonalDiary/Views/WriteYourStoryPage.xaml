@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalDiary.WriteYourStoryPage"
+             BackgroundImage="drawable/BackgroundColor.jpg">
+    <ContentPage.Content>
+        <StackLayout Margin="2,30,0,0">
+            <Label Text="Ready?" x:Name="aStepToWriteYourStory" 
+                   VerticalOptions="Center" 
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="24" FontAttributes="Bold" 
+                   TextColor="Maroon">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="adler.ttf#Adler" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Grid Margin="6,4,12,0" WidthRequest="50" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions HorizontalTextAlignment="Center" VerticalTextAlignment="Center" >
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition  Width="180"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0"
+                       Text="When did it happen?" 
+                       FontAttributes="Bold" 
+                       TextColor="Black" 
+                       FontSize="18" 
+                       Margin="0,12,0,0"/>
+                <DatePicker Grid.Row="0" Grid.Column="1"
+                            x:Name="DateOfTheStory"
+                            Format="dd/MM/yyyy" 
+                            TextColor="Black" />
+                <Label Grid.Row="1" Grid.Column="0"
+                       Text="Name the story:"
+                       FontAttributes="Bold" 
+                       TextColor="Black" 
+                       FontSize="18" 
+                       Margin="0,10,0,0"/>
+                <Entry Grid.Row="1" Grid.Column="1" 
+                       x:Name="TitleOfTheStory" 
+                       Placeholder="Title"
+                       TextColor="Black" 
+                       PlaceholderColor="Gray"
+                       TextChanged="onEntry_TextChanged"/>
+            </Grid>
+            <Button Text="Continue.."
+                    VerticalOptions="End" HorizontalOptions="Center" 
+                    Opacity="0.5"
+                    WidthRequest="200" 
+                    BackgroundColor="Black"
+                    TextColor="#fae7c6"
+                    Margin="0,20,0,0"
+                    Clicked="continueToTheStory_Clicked">
+            </Button> 
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

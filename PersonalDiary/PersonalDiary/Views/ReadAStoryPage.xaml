@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalDiary.Views.ReadAStoryPage"
+             BackgroundImage="@drawable/pageBackground.png">
+    <ContentPage.Content>
+        <StackLayout Margin="2,20,0,0">
+            <Label Text="{Binding Title}" x:Name="storyTitle" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="24" FontAttributes="Bold" 
+                   TextColor="Gray">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="adler.ttf#Adler" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Label Text="{Binding Date}" x:Name="storyDate" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="18" FontAttributes="Bold" 
+                   TextColor="Maroon"/>
+            <ScrollView>
+                <Editor x:Name="storyContent" 
+                        Text="{Binding StoryContent}"
+                        WidthRequest="20"
+                        FontAttributes="Italic" 
+                        Keyboard="Chat" HeightRequest="1000" 
+                        FontSize="26"
+                        Margin="20,0"
+                        TextColor="#000F55" 
+                        BackgroundColor="Transparent">
+                    <Editor.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="IndieFlower.ttf#Indie Flower"/>
+                        </OnPlatform>
+                    </Editor.FontFamily>
+                </Editor>
+            </ScrollView> <!--
+            <ListView x:Name="listViewStories" 
+                      Margin="12,0,12,0" 
+                      RowHeight="500"
+                      SelectedItem="Null">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Editor x:Name="storyContent" 
+                                    Text="{Binding StoryContent}"
+                                    TextColor="Black"
+                                    FontSize="20"
+                                    IsEnabled="True"
+                                    Keyboard="Chat" HeightRequest="500" >
+                                <Editor.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="Android" Value="IndieFlower.ttf#Indie Flower"/>
+                                    </OnPlatform>
+                                </Editor.FontFamily>
+                                <Editor.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="storyContent_Tapped"></TapGestureRecognizer>
+                                </Editor.GestureRecognizers>
+                            </Editor>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView> -->
+            <Grid ColumnSpacing="16" Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions HorizontalTextAlignment="Center" 
+                                        VerticalTextAlignment="Center" >
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" 
+                        Text="Menu" 
+                        TextColor="Black"  
+                        BackgroundColor="Transparent"
+                        Clicked="BtnBack_Clicked">
+                </Button>
+                <Button Grid.Row="0" Grid.Column="1" 
+                        x:Name="deleteButton"
+                        Text="Delete" 
+                        TextColor="Black"  
+                        BackgroundColor="Transparent"
+                        Clicked="BtnDelete_Button">
+                </Button>
+                <Button Grid.Row="0" Grid.Column="2" 
+                        x:Name="saveButton"
+                        Text="Save" 
+                        TextColor="Black"  
+                        BackgroundColor="Transparent"
+                        Clicked="BtnSave_Clicked">
+                </Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

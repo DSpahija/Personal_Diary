@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalDiary.Views.SongsOfRemembrancePage"
+             BackgroundImage="drawable/pageBackground.jpg">
+    <ContentPage.Content>
+        <StackLayout Margin="2,26,0,0">
+            <Label Text="Songs of remembrance" x:Name="songsOfRemembrance" 
+                   VerticalOptions="Center" 
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="24" FontAttributes="Bold" 
+                   TextColor="Maroon">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="adler.ttf#Adler" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <SearchBar x:Name="searchBarSinger"
+                       Margin="0,0,20,0"
+                       TextChanged="SearchSinger_TextChanged"
+                       Placeholder="Search by singer or song"/>
+            <Grid Margin="6,4,12,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*" />
+                    <ColumnDefinition Width="50*" />
+                </Grid.ColumnDefinitions>
+                <Label  Grid.Row="0" Grid.Column="0" 
+                       Margin="14,0,0,0"
+                                    Text="Singer/Band" 
+                                       TextColor="Black"
+                                        FontAttributes="Bold"
+                                       FontSize="20"></Label>
+                <Label  Grid.Row="0" Grid.Column="1" 
+                        Margin="12,0,0,0"
+                                        Text="Song Title" 
+                                        TextColor="Black"
+                                        FontAttributes="Bold"
+                                        FontSize="20"></Label>
+            </Grid>
+            <ListView x:Name="listViewSongs"
+                      Margin="24,0,18,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="singerName" 
+                                    Text="{Binding Singer}" 
+                                       TextColor="#000F55"
+                                       FontSize="24"
+                                       WidthRequest="180">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="Android" Value="IndieFlower.ttf#Indie Flower"/>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                                <Label x:Name="songName" 
+                                    Text="{Binding Song}" 
+                                       TextColor="#000F55"
+                                       FontSize="24"
+                                       WidthRequest="180">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="Android" Value="IndieFlower.ttf#Indie Flower"/>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Add another song of remembrance!"
+                        WidthRequest="380"
+                        FontSize="16"
+                        BackgroundColor="Transparent"
+                        Opacity="0.6"
+                        TextColor="Black"
+                        Clicked="ShowAddASong"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalDiary.StoryPage"
+             BackgroundImage="@drawable/pageBackground.png">
+    <ContentPage.Content>
+        <StackLayout Margin="2,26,0,0">
+            <Label Text="storyTitle" x:Name="storyTitle" 
+                   VerticalOptions="Center" 
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="24" FontAttributes="Bold" 
+                   TextColor="Gray">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="adler.ttf#Adler" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Label Text="DD/MM/YYYY" x:Name="storyDate" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="18" FontAttributes="Bold" 
+                   TextColor="Maroon" 
+                   HorizontalTextAlignment="Center"/>
+            <ScrollView>
+                <Editor x:Name="storyContent" 
+                        WidthRequest="20"
+                        FontAttributes="Italic" 
+                        Keyboard="Chat" HeightRequest="500" 
+                        FontSize="26"
+                        Margin="20,0"
+                        TextColor="#000F55" 
+                        BackgroundColor="Transparent">
+                    <Editor.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="IndieFlower.ttf#Indie Flower"/>
+                        </OnPlatform>
+                    </Editor.FontFamily>
+                </Editor>
+            </ScrollView>
+            <Grid ColumnSpacing="16" Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions HorizontalTextAlignment="Center" 
+                                        VerticalTextAlignment="Center" >
+                    <ColumnDefinition />
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" 
+                        Text="Cancel" 
+                        TextColor="Black"  
+                        BackgroundColor="Transparent"
+                        Clicked="BtnCancel_Clicked">
+                </Button>
+                <Button Grid.Row="0" Grid.Column="1" 
+                        x:Name="SaveButton"
+                        Text="Save" 
+                        TextColor="Black"  
+                        BackgroundColor="Transparent"
+                        Clicked="BtnSave_Clicked">
+                </Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

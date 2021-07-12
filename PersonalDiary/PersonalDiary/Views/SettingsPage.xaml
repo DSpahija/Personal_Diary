@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalDiary.Views.SettingsPage"
+             BackgroundImage="drawable/BackgroundColor.jpg">
+    <ContentPage.Content>
+        <StackLayout x:Name="stackLayout_settings" Margin="2,26,0,0">
+            <Label Text="Settings" 
+               TextColor="Maroon" 
+               FontAttributes="Bold" 
+               VerticalOptions="Center"
+               HorizontalOptions="Center" 
+               FontSize="32">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="adler.ttf#Adler" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+
+            <Entry x:Name="entryPassword"
+               Placeholder="Change password"
+               IsPassword="True"
+               PlaceholderColor="Black"/>
+
+            <Grid ColumnSpacing="16" Margin="0,10,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions HorizontalTextAlignment="Center" 
+                                        VerticalTextAlignment="Center" >
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="dontsaveButton"
+                    Grid.Row="0" Grid.Column="0"
+                Text="Don't save" 
+                VerticalOptions="Center"
+                Opacity="0.5"
+                Margin="0,6"
+                    WidthRequest="200" 
+                    BackgroundColor="Black"
+                    TextColor="#fae7c6"
+                    FontSize="16"
+                    Clicked="dontsave_Clicked">
+                </Button>
+                <Button x:Name="saveButton"
+                    Grid.Row="0" Grid.Column="1"
+                Text="Save" 
+                VerticalOptions="Center"
+                Margin="0,6"
+                Opacity="0.5"
+                    WidthRequest="200" 
+                    BackgroundColor="Black"
+                    TextColor="#fae7c6"
+                FontSize="16"
+                    Clicked="save_Clicked">
+                </Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

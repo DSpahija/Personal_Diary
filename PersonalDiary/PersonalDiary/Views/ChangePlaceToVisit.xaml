@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalDiary.Views.ChangePlaceToVisit"
+             BackgroundImage="@drawable/pageBackground.png">
+    <ContentPage.Content>
+        <StackLayout Margin="4,20,4,0">
+            <Label Text="{Binding Shteti}" x:Name="country" 
+                       Grid.Column="1" Grid.Row="0"
+                   VerticalOptions="Center" 
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   WidthRequest="240"
+                   FontSize="26" FontAttributes="Bold" 
+                   TextColor="Maroon">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="adler.ttf#Adler" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Grid ColumnSpacing="16" Margin="20,10,10,20"
+                  VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions HorizontalTextAlignment="Center" 
+                                        VerticalTextAlignment="Center" >
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="180" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Grid.Row="0"
+                       Text="City: "/>
+                <Editor Text="{Binding Qyteti}" x:Name="city" 
+                        Grid.Column="1" Grid.Row="0"
+                   FontSize="18" FontAttributes="Bold" 
+                   TextColor="Gray" />
+                <Label Grid.Column="0" Grid.Row="1"
+                       Text="Notes: "/>
+                <Editor Text="{Binding Notes}" x:Name="notesPlace" 
+                        Grid.Column="1" Grid.Row="1"
+                        MaxLength="20"
+                   FontSize="18" FontAttributes="Bold" 
+                   TextColor="Gray" 
+                        />
+                <Label Grid.Column="0" Grid.Row="2"
+                       Text="Visited? "/>
+                <Label Text="{Binding isVisited}" x:Name="isVisited" 
+                       Grid.Column="1" Grid.Row="2"
+                   FontSize="18" FontAttributes="Bold" 
+                   TextColor="Gray" />
+            </Grid>
+            <Grid ColumnSpacing="16" Margin="0,0,0,10"
+                  VerticalOptions="EndAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions HorizontalTextAlignment="Center" 
+                                        VerticalTextAlignment="Center" >
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" 
+                        Text="Menu" 
+                        TextColor="Black"  
+                        BackgroundColor="Transparent"
+                        Clicked="BtnBack_Clicked">
+                </Button>
+                <Button Grid.Row="0" Grid.Column="1" 
+                        x:Name="deleteButton"
+                        Text="Delete" 
+                        TextColor="Black"  
+                        BackgroundColor="Transparent"
+                        Clicked="BtnDelete_Button">
+                </Button>
+                <Button Grid.Row="0" Grid.Column="2" 
+                        x:Name="saveButton"
+                        Text="Save" 
+                        TextColor="Black"  
+                        BackgroundColor="Transparent"
+                        Clicked="BtnSave_Clicked">
+                </Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

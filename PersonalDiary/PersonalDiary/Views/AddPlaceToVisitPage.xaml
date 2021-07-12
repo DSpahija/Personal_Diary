@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalDiary.Views.AddPlaceToVisitPage"
+             BackgroundImage="@drawable/pageBackground.png">
+    <ContentPage.Content>
+        <StackLayout Margin="20,30,6,0">
+            <Label Text="Add a place" x:Name="places" 
+                   VerticalOptions="Center" 
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="24" FontAttributes="Bold" 
+                   TextColor="Maroon"
+                   Margin="0,10,0,0">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="adler.ttf#Adler" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Picker x:Name="pickerCountry"/>
+            <Entry x:Name="addCityName"    
+                   Placeholder="City"
+                   TextColor="Black"
+                   FontSize="18"/>
+            <Grid ColumnSpacing="16" Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions HorizontalTextAlignment="Center" 
+                                        VerticalTextAlignment="Center" >
+                    <ColumnDefinition />
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="visitedOrNot"
+                       Grid.Column="0" Grid.Row="0"
+                       Text="Visited?"
+                       FontSize="18"
+                       Margin="2,10,0,0"/>
+                <Picker x:Name="pickerPlace"
+                        Grid.Column="1" Grid.Row="0"/>
+            </Grid>
+            <Entry x:Name="notesPlace"
+                   Placeholder="Notes"/>
+            <Grid ColumnSpacing="16" Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions HorizontalTextAlignment="Center" 
+                                        VerticalTextAlignment="Center" >
+                    <ColumnDefinition />
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="backToMenu"
+                        Grid.Row="0" Grid.Column="0"
+                        Text="Changed my mind!"
+                        Opacity="0.5"
+                        BackgroundColor="Black"
+                        TextColor="#fae7c6"
+                        Clicked="BackToMenu_Clicked"/>
+                <Button x:Name="addPlaceToVisit"
+                        Grid.Row="0" Grid.Column="1"
+                        Text="Add this place."
+                        Opacity="0.5"
+                        BackgroundColor="Black"
+                        TextColor="#fae7c6"
+                        Clicked="AddPlace_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalDiary.Views.ReadYourPastPage"
+             BackgroundImage="@drawable/pageBackground.jpg">
+    <ContentPage.Content>
+        <StackLayout Margin="2,26,0,0">
+            <Label Text="Your past stories" x:Name="stories" 
+                   VerticalOptions="Center" 
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="24" FontAttributes="Bold" 
+                   TextColor="Maroon">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="adler.ttf#Adler" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <SearchBar x:Name="searchBarTitle"
+                       Margin="0,0,20,0"
+                       TextChanged="SearchTitle_TextChanged"
+                       Placeholder="Search by title or date"/>
+            <Grid Margin="6,4,12,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*" />
+                    <ColumnDefinition Width="50*" />
+                </Grid.ColumnDefinitions>
+                <Label  Grid.Row="0" Grid.Column="0" 
+                       Margin="16,0,0,0"
+                                    Text="Title" 
+                                       TextColor="Black"
+                                        FontAttributes="Bold"
+                                       FontSize="20"></Label>
+                <Label  Grid.Row="0" Grid.Column="1" 
+                        Margin="14,0,0,0"
+                                        Text="Date" 
+                                        TextColor="Black"
+                                        FontAttributes="Bold"
+                                        FontSize="20"></Label>
+            </Grid>
+            <ListView x:Name="listViewStories"
+                      Margin="24,0,18,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="titleOfStory" 
+                                    Text="{Binding Title}" 
+                                       TextColor="#000F55"
+                                       FontSize="24"
+                                       WidthRequest="180">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="Android" Value="IndieFlower.ttf#Indie Flower"/>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                                <Label x:Name="dateOfStory" 
+                                    Text="{Binding Date}" 
+                                       TextColor="Black"
+                                       FontSize="24"
+                                       WidthRequest="180">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="Android" Value="IndieFlower.ttf#Indie Flower"/>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

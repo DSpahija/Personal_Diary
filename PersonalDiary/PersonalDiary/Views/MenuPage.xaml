@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalDiary.MenuPage"
+             BackgroundImage="drawable/BackgroundColor.jpg">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="For all the unspoken words."
+                   HorizontalTextAlignment="Center"
+                   Font="26"
+                   FontAttributes="Italic"
+                   Margin="16,40,16,8"
+                   TextColor="Black">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="adler.ttf#Adler" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <RelativeLayout>
+            <Grid  RelativeLayout.YConstraint=
+                "{ConstraintExpression Type=RelativeToParent, 
+                Property=Height, Factor=0, Constant=10}"
+		    	RelativeLayout.XConstraint=
+                "{ConstraintExpression Type=RelativeToParent, 
+                Property=Width, Factor=0, Constant=2}">
+                <Grid.RowDefinitions >
+                        <RowDefinition Height="62"/>
+                        <RowDefinition Height="62"/>
+                        <RowDefinition Height="62"/>
+                        <RowDefinition Height="62"/>
+                        <RowDefinition Height="62"/>
+                        <RowDefinition Height="62" />
+                    </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="350"/>
+                    </Grid.ColumnDefinitions>
+                <Button  Grid.Row="0" Grid.Column="0"
+                    Text="Write yor story"
+                    Opacity="1"
+                    BackgroundColor="Black"
+                    TextColor="#fae7c6"
+                         Clicked="writeYourStory_Clicked"/>
+                <Button  Grid.Row="1" Grid.Column="0"
+                    Text="Read your past"
+                    Opacity="0.9"
+                    BackgroundColor="Black"
+                    TextColor="#fae7c6"
+                         Clicked="readYourPast_Clicked"/>
+                <Button  Grid.Row="2" Grid.Column="0"
+                    Text="Places to visit"
+                    Opacity="0.8"
+                    BackgroundColor="Black"
+                    TextColor="#fae7c6"
+                    Clicked="placesToVisit_Clicked"/>
+                <Button  Grid.Row="3" Grid.Column="0"
+                    Text="Songs of remembrance"
+                    Opacity="0.7"
+                    BackgroundColor="Black"
+                    TextColor="#fae7c6"
+                    Clicked="songsOfRemembrance_Clicked"/>
+                <Button  Grid.Row="4" Grid.Column="0"
+                    Text="Settings"
+                    Opacity="0.6"
+                    BackgroundColor="Black"
+                    TextColor="#fae7c6"
+                    Clicked="settings_Clicked" />
+                <Button  Grid.Row="5" Grid.Column="0"
+                        Text="Log out"
+                        Opacity="0.5"
+                        BackgroundColor="Black"
+                        TextColor="#fae7c6"
+                        Clicked="logOut_Clicked"/>
+        </Grid>
+            </RelativeLayout>
+            <Label FontSize="16" Margin="6,0,6,10" HorizontalTextAlignment="Center"
+                Text="May every word your write remind you of fond memories, and the seldom bitter ones teach you lessons of power, growth and persistance."/>
+            <!--
+                   May you fill this diary with good memories. 
+                   But even if there are bad ones, don't worry, 
+                   we all got them. You're not alone."
+            -->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

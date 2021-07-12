@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PersonalDiary"
+             x:Class="PersonalDiary.MainPage"
+             BackgroundImage="drawable/BackgroundColor.jpg">
+    <!-- BackgroundColor="#FFF5EE" -->
+    <StackLayout x:Name="stackLayout_login" 
+                 Margin="60,60">
+
+        <Image Source="drawable/Logo.png"
+               HeightRequest="200" 
+               WidthRequest="200" 
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+
+        <Label Text="Dear Diary" 
+               TextColor="Black" 
+               FontAttributes="Bold" 
+               VerticalOptions="Center"
+               HorizontalOptions="Center" 
+               FontSize="32"
+               Margin="0,6">
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android" Value="adler.ttf#Adler" />
+                </OnPlatform>
+            </Label.FontFamily>
+        </Label>
+
+        <Entry x:Name="entryUsername"
+               Placeholder="Username" 
+               Keyboard="Text"
+               PlaceholderColor="Black" 
+               Margin="0,10,0,0"/>
+
+        <Entry x:Name="entryPassword"
+               Placeholder="Password"
+               Keyboard="Text"
+               IsPassword="True"
+               PlaceholderColor="Black"/>
+
+        <Button x:Name="loginButton"
+                Text="Log in" 
+                VerticalOptions="Center"
+                Opacity="0.8"
+                Margin="0,14,0,10"
+                HeightRequest="40"
+                BackgroundColor="Black" 
+                TextColor="#FFF5EE"
+                Clicked="Clicked_LogIn"
+                FontSize="16">
+            <Button.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android" Value="adler.ttf#Adler" />
+                </OnPlatform>
+            </Button.FontFamily>
+        </Button>
+
+        <!-- BorderRadius="20" -->
+
+        <Button Text="No account? Create your personal diary now."
+               TextColor="Black"
+               BorderColor="Transparent"
+               BackgroundColor="Transparent"
+               Opacity="0.8"
+               BorderWidth="0"
+               Clicked="Clicked_Register"
+               FontAttributes="Bold" 
+               VerticalOptions="Center"
+               FontSize="10">
+        </Button>
+        <!--
+            <Button.BorderRadius>
+                 HACK: fixes a bug where border doesn't get draw unless there is a radius. 
+                <OnPlatform x:TypeArguments="x:Int32">
+                    <OnPlatform.Android>20</OnPlatform.Android>
+                </OnPlatform>
+            </Button.BorderRadius
+        
+        
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="labelRegister_Tapped">
+                </TapGestureRecognizer>
+
+            </Label.GestureRecognizers>-->
+    </StackLayout>
+</ContentPage>

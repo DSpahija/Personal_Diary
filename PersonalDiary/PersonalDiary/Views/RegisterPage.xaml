@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PersonalDiary"
+             x:Class="PersonalDiary.RegisterPage"
+             BackgroundImage="drawable/BackgroundColor.jpg">
+    <!-- BackgroundColor="#FFF5EE" -->
+    <StackLayout x:Name="stackLayout_login" 
+                 Margin="60,60">
+
+        <Image Source="drawable/Logo.png"
+               HeightRequest="200" 
+               WidthRequest="200" 
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+
+        <Label Text="Create your personal diary!" 
+               TextColor="Black" 
+               FontAttributes="Bold" 
+               VerticalOptions="Center"
+               HorizontalOptions="Center" 
+               FontSize="20"
+               Margin="0,6">
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android" Value="adler.ttf#Adler" />
+                </OnPlatform>
+            </Label.FontFamily>
+        </Label>
+
+        <Entry x:Name="entryEmail"
+               Placeholder="Email" 
+               Keyboard="Email"
+               PlaceholderColor="Black" 
+               Margin="0,10,0,0"/>
+
+        <Entry x:Name="entryUsername"
+               Placeholder="Username"
+               Keyboard="Text"
+               PlaceholderColor="Black"/>
+        
+        <Entry x:Name="entryPassword"
+               Placeholder="Password"
+               Keyboard="Text"
+               IsPassword="True"
+               PlaceholderColor="Black"/>
+
+
+        <Grid ColumnSpacing="16" Margin="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions HorizontalTextAlignment="Center" 
+                                    VerticalTextAlignment="Center" >
+                <ColumnDefinition />
+                <ColumnDefinition  />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="loginButton"
+                    Grid.Row="0" Grid.Column="0"
+                    Text="Log in" 
+                    VerticalOptions="Center"
+                    Opacity="0.8"
+                    Margin="0,6"
+                    HeightRequest="40"
+                    BackgroundColor="Black" 
+                    TextColor="#FFF5EE"
+                    Clicked="Clicked_LogIn"
+                    FontSize="14">
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="adler.ttf#Adler" />
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>
+
+            <Button x:Name="registerButton"
+                    Text="Register"
+                    Grid.Row="0" Grid.Column="1"
+                    VerticalOptions="Center"
+                    Opacity="0.8"
+                    Margin="0,6"
+                    HeightRequest="40"
+                    BackgroundColor="Black" 
+                    TextColor="#FFF5EE"
+                    Clicked="Clicked_Register"
+                    FontSize="12">
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="adler.ttf#Adler" />
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>
+        </Grid>
+        <!--
+            <Button.BorderRadius>
+                 HACK: fixes a bug where border doesn't get draw unless there is a radius. 
+                <OnPlatform x:TypeArguments="x:Int32">
+                    <OnPlatform.Android>20</OnPlatform.Android>
+                </OnPlatform>
+            </Button.BorderRadius
+        
+        
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="labelRegister_Tapped">
+                </TapGestureRecognizer>
+
+            </Label.GestureRecognizers>-->
+    </StackLayout>
+</ContentPage>
